@@ -1,7 +1,7 @@
 /* global vars */
 
-$mainColor: #007578;
-$secColor: #98d900;
+$mainColor: #353d51;
+$secColor: #29abe2;
 $mainLight: #00a78e;
 $textColor: #3f3f3f;
 $fontFamily: "cairo";
@@ -43,7 +43,12 @@ body {
   background-color: #fff;
   height: 80px;
   padding: 0 15px;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #ccc;
+  background-color: #f5f5f5;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+
   .navbar-brand {
     margin: 0;
   }
@@ -58,6 +63,7 @@ body {
     }
   }
   .nav-item {
+    transition: .5s;
     .nav-link {
       padding: 0 12px;
       height: 80px;
@@ -95,11 +101,21 @@ body {
       background-color: $secColor;
     }
   }
+
+  .langs {
+    margin-inline-start: 24px;
+    font-weight: bold;
+    color: $mainColor;
+    text-decoration: none;
+    svg {
+      margin-inline-start: 5px;
+    }
+  }
 }
 
 /*header*/
 header {
-  padding: 50px 0;
+  padding: 130px 0 50px;
 
   main {
     h1 {
@@ -114,6 +130,15 @@ header {
       color: $textColor;
       font-weight: bold;
       font-size: 18px;
+      min-height: 50px;
+      padding: 0;
+      margin: 0;
+      background-color: $secColor;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      color: $mainColor;
+      justify-content: center;
     }
   }
 }
@@ -126,6 +151,7 @@ header {
     font-weight: bold;
     color: $secColor;
     font-size: 24px;
+    margin: 0;
     @media (max-width: 991px) {
       margin-bottom: 24px;
     }
@@ -139,7 +165,7 @@ header {
     }
     button {
       border: none;
-      background-color: #98d900;
+      background-color: $secColor;
       padding: 12px 24px;
       margin-inline-start: 8px;
       border-radius: 5px;
@@ -179,7 +205,7 @@ header {
   .feat-content {
     text-align: start;
     h4 {
-      color: $secColor;
+      color: $mainColor;
       font-weight: bold;
       font-size: 24px;
       position: relative;
@@ -188,12 +214,11 @@ header {
         content: "";
         position: absolute;
         right: 0;
-        bottom: -8px;
+        bottom: -14px;
         display: block;
         height: 3px;
-        background-color: $secColor;
-        width: 17%;
-        background-color: #ccd4b9;
+        background-color: $mainColor;
+        width: 14%;
         border-radius: 8px;
       }
     }
@@ -219,7 +244,7 @@ header {
 .about-us {
   font-family: $fontFamily !important;
   padding: 50px 0;
-  background-color: #007578;
+  background-color: $secColor;
   h2 {
     font-weight: bold;
     margin-bottom: 24px;
@@ -250,8 +275,8 @@ header {
         margin: 0 8px;
         font-weight: bold;
         padding: 4px 16px;
-        background-color: $secColor;
-        color: $mainColor;
+        background-color: $mainColor;
+        color: $secColor;
       }
     }
   }
@@ -270,7 +295,8 @@ header {
     .card {
       margin-bottom: 16px;
       .card-header {
-        background-color: $textColor;
+        background-color: #f9f9f9;
+        padding: 4px;
         h5 {
           button {
             display: block;
@@ -278,8 +304,10 @@ header {
             text-align: start;
             color: $secColor;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 15px;
             text-decoration: none !important;
+            white-space: normal;
+            padding: 4px;
           }
         }
       }
@@ -293,30 +321,28 @@ header {
 .Show-more {
   text-align: center;
   span {
-    padding: 16px;
+    padding: 8px 16px;
     display: inline-block;
-    background-color: #98cd29;
+    background-color: $secColor;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
   }
 }
 
-
-footer{
+footer {
   background-color: $mainColor;
-  padding: 50px 0 84px ;
+  padding: 50px 0 84px;
   position: relative;
-  .footer-links{
-    h4{
+  .footer-links {
+    h4 {
       font-weight: bold;
-      color:$secColor;
+      color: $secColor;
       margin-bottom: 24px;
-      
     }
-    a{
+    a {
       display: block;
-      color:#fff;
+      color: #fff;
       font-weight: 600;
       margin-bottom: 16px;
       display: block;
@@ -324,7 +350,7 @@ footer{
       font-size: 14px;
     }
   }
-  .social{
+  .social {
     position: absolute;
     bottom: 0;
     width: 90%;
@@ -335,8 +361,82 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    a{
-      margin: 0 12px
+    a {
+      margin: 0 12px;
     }
+  }
+}
+
+/*terms*/
+.terms {
+  padding-top: 120px;
+  padding-bottom: 40px;
+  h2 {
+    font-weight: bold;
+    color: $secColor;
+    margin-bottom: 32px;
+  }
+  .terms-desc {
+    color: $mainColor;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+
+  .card{
+    margin-bottom: 16px;
+    ul{
+      list-style: decimal;
+      li{
+        margin-bottom: 8px;
+      }
+    }
+  }
+  .card-header {
+    background-color: rgba(41, 171, 226, 0.1);
+    .btn-link {
+      color: $secColor;
+      background-color: transparent;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      text-align: start;
+      padding: 0;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+  }
+
+}
+
+
+/*scrollToTop*/ 
+.scrollToTop{
+  position: fixed;
+  display: none;
+  bottom: 3%;
+  left: 2%;
+  background-color: #f1f1f1;
+  width: 40px;
+  height: 40px;
+  z-index: 666;
+  box-shadow: 0 0 5px #ccc;
+  cursor: pointer;
+  .icon{
+    width: 100%;height: 100%;
+    display: flex;align-items: center;
+    justify-content: center;
+  }
+}
+
+/*ltr */
+
+body[dir="ltr"] {
+  .features .feat-content h4::after {
+    left: 0;
+  }
+  .scrollToTop{
+    left: auto;
+    right: 2%;
   }
 }
